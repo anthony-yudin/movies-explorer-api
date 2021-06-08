@@ -1,1 +1,1 @@
-# movies-explorer-api
+Сервер - backend.nomoredomains.icu
