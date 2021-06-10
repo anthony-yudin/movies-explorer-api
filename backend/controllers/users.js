@@ -6,8 +6,11 @@ const InternalServerErr = require('../errors/internal-server-err');
 const BadRequestErr = require('../errors/bad-request-err');
 const NotAuthError = require('../errors/not-auth-error');
 const DoubleEmailError = require('../errors/double-email-error');
+const { JWT_SECRET, NODE_ENV } = require('../config');
 
-const { NODE_ENV, JWT_SECRET } = process.env;
+const {
+  userNotFind, incorrectCreateDataUser, doubleEmail, incorrectUpdateDataUser, serverErr,
+} = require('../middlewares/constants');
 
 exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -33,7 +36,7 @@ exports.getUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
-        throw new NotFoundError('Пользователь не найден');
+        throw new NotFoundError(userNotFind);
       }
 
       return res.send(user);
@@ -52,8 +55,8 @@ exports.createUser = (req, res, next) => {
     }))
     .then((user) => res.send({ ...user._doc, password: undefined }))
     .catch((err) => {
-      if (err.name === 'ValidationError') throw new BadRequestErr('Переданы некорректные данные при создании пользователя');
-      if (err.name === 'MongoError' && err.code === 11000) throw new DoubleEmailError('Пользователь с таким email уже существует');
+      if (err.name === 'ValidationError') throw new BadRequestErr(incorrectCreateDataUser);
+      if (err.name === 'MongoError' && err.code === 11000) throw new DoubleEmailError(doubleEmail);
       throw new InternalServerErr('Ошибка на сервере');
     })
     .catch(next);
@@ -65,8 +68,8 @@ exports.updateUser = (req, res, next) => {
   User.findByIdAndUpdate(req.user._id, { email, name }, { new: true, runValidators: true })
     .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'ValidationError') throw new BadRequestErr('Переданы некорректные данные при обновлении пользователя');
-      throw new InternalServerErr('Ошибка на сервере');
+      if (err.name === 'ValidationError') throw new BadRequestErr(incorrectUpdateDataUser);
+      throw new InternalServerErr(serverErr);
     })
     .catch(next);
 };

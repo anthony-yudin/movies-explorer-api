@@ -3,6 +3,9 @@ const NotFoundError = require('../errors/not-found-err');
 const InternalServerErr = require('../errors/internal-server-err');
 const BadRequestErr = require('../errors/bad-request-err');
 const ForbiddenError = require('../errors/forbidden-error');
+const {
+  serverErr, incorrectDataMovie, movierNotFind, onlyDeleteYourMovie,
+} = require('../middlewares/constants');
 
 exports.getMovies = (req, res, next) => {
   Movie.find({})
@@ -10,14 +13,23 @@ exports.getMovies = (req, res, next) => {
       res.send(movie);
     })
     .catch(() => {
-      throw new InternalServerErr('Ошибка на сервере');
+      throw new InternalServerErr(serverErr);
     })
     .catch(next);
 };
 
 exports.createMovies = (req, res, next) => {
   const {
-    country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail,
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailer,
+    nameRU, nameEN,
+    thumbnail,
+    movieId,
   } = req.body;
 
   Movie.create({
@@ -31,12 +43,13 @@ exports.createMovies = (req, res, next) => {
     nameRU,
     nameEN,
     thumbnail,
+    movieId,
     owner: req.user._id,
   })
     .then((movie) => res.send(movie))
     .catch((err) => {
-      if (err.name === 'ValidationError') throw new BadRequestErr('Переданы некорректные данные при создании фильма');
-      throw new InternalServerErr('Ошибка на сервере');
+      if (err.name === 'ValidationError') throw new BadRequestErr(incorrectDataMovie);
+      throw new InternalServerErr(serverErr);
     })
     .catch(next);
 };
@@ -45,10 +58,10 @@ exports.deleteMovies = (req, res, next) => {
   Movie.findById(req.params.id)
     .then((movie) => {
       if (!movie) {
-        throw new NotFoundError('Фильм не найден');
+        throw new NotFoundError(movierNotFind);
       }
       if (req.user._id !== movie.owner.toString()) {
-        throw new ForbiddenError('Можно удалить только свой фильм!');
+        throw new ForbiddenError(onlyDeleteYourMovie);
       } else {
         Movie.findByIdAndRemove(req.params.id)
           .then(() => res.send(movie))
