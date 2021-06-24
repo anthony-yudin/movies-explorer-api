@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
 const { errors } = require('celebrate');
-const { limiter } = require('./middlewares/limiter');
+const limiter = require('./middlewares/limiter');
 const { MONGO_URL } = require('./config');
 const { allowedCors } = require('./middlewares/constants');
 
