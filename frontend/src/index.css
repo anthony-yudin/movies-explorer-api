@@ -1,0 +1,39 @@
+@import "vendor/fonts/inter.css";
+@import "vendor/normalize.css";
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: calc(100% - 100px);
+    padding: 0 50px;
+  }
+}
+
+.btn {
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+  background: #2BE080;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #1fa75f;
+}

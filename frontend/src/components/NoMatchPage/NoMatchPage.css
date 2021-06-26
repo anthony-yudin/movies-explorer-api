@@ -1,0 +1,35 @@
+.page404 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page404__box {
+    text-align: center;
+}
+
+.page404__title {
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 140px;
+    line-height: 169px;
+}
+
+.page404__subtitle {
+    width: 100%;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.page404__href {
+    width: 100%;
+    color: #2BE080;
+    margin-top: 200px;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    display: block;
+}
+
