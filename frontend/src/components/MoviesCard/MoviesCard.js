@@ -14,7 +14,7 @@ function MoviesCard({ isSaved, isLiked }) {
       <div className="movies__content">
         <div className="movies__title-box">
           <h3 className="movies__title">33 слова о дизайне</h3>
-          {isSaved ? <img className="movies__close" src={close} alt="Удалить фильм из сохранённых" /> : <div className={isLikedClass} />}
+          {isSaved.saved ? <img className="movies__close" src={close} alt="Удалить фильм из сохранённых" /> : <div className={isLikedClass} />}
 
         </div>
         <p className="movies__duration">1ч 42м</p>

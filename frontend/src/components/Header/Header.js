@@ -35,7 +35,7 @@ function Header({ onMenuClick }) {
 
           </div>
           <div className="header__right">
-            {notMain ? <><Link className="account"><img className="account__img" src={account} alt="Аккаунт"/>Аккаунт</Link><button className="header__btn-nav" onClick={handleMenuClick}><img className="header__btn-nav-logo" src={nav} alt="Мобильное меню"/></button></> : <><Link to="/signup" className="header__check-in">Регистрация</Link><Link to="/signin" className="header__come-in btn">Войти</Link></>}
+            {notMain ? <><Link to="/profile" className="account"><img className="account__img" src={account} alt="Аккаунт"/>Аккаунт</Link><button className="header__btn-nav" onClick={handleMenuClick}><img className="header__btn-nav-logo" src={nav} alt="Мобильное меню"/></button></> : <><Link to="/signup" className="header__check-in">Регистрация</Link><Link to="/signin" className="header__come-in btn">Войти</Link></>}
           </div>
         </div>
       </div>

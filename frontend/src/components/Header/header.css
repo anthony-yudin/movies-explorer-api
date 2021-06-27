@@ -34,6 +34,7 @@
     cursor: pointer;
     background: transparent;
     border: none;
+    text-decoration: none;
     transition: .3s;
 }
 
@@ -43,6 +44,7 @@
     font-size: 10px;
     line-height: 16px;
     border: none;
+    text-decoration: none;
 }
 
 .header__check-in:hover {

@@ -6,6 +6,8 @@
 
 .student__img {
     width: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
 }
 
 .student__title {
@@ -48,15 +50,15 @@
     order: 2;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
     .student__img {
         order: 2;
         width: 255px;
-        padding-left: 49px;
+        margin-left: 50px;
     }
     .student__text-box {
         order: 1;
-        width: calc(100% - 304px);
+        width: calc(100% - 353px);
     }
     .student__text {
         font-size: 12px;
@@ -69,7 +71,7 @@
         width: 270px;
     }
     .student__text-box {
-        width: 600px;
+        width: calc(100% - 320px);
     }
     .student__text {
         font-size: 12px;

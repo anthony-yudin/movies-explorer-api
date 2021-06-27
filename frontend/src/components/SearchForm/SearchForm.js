@@ -7,10 +7,12 @@ function SearchForm() {
     <div className="form-search">
       <form className="form-search__form">
         <div className="form-search__box">
-          <input className="form-search__input" type="text" name="search" placeholder="Фильм" />
-          <button className="form-search__btn">
-            <img className="form-search__btn-img" src={search} alt="Поиск!"/>
-          </button>
+          <input className="form-search__input" required type="text" name="search" placeholder="Фильм" />
+          <div className="form-search__btn-box">
+            <button className="form-search__btn">
+              <img className="form-search__btn-img" src={search} alt="Поиск!"/>
+            </button>
+          </div>
         </div>
         <label className="form-search__switch-box">
           <div className="form-search__switch">
