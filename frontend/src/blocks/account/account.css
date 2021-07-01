@@ -1,0 +1,28 @@
+.account {
+    display: none;
+
+    color: #000;
+    width: 104px;
+    padding: 7px 12px;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 50px;
+    border: 2px solid #efefef;
+    line-height: 16px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.account__img {
+    margin-right: 7px;
+}
+
+.account_navigation {
+    display: inline-block;
+}
+
+@media screen and (min-width: 991px) {
+    .account {
+        display: flex;
+    }
+}
