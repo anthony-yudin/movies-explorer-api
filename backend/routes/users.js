@@ -27,8 +27,8 @@ usersRoutes.post('/signup', celebrate({
 usersRoutes.get('/users/me', auth, getUser);
 usersRoutes.patch('/users/me', auth, celebrate({
   body: Joi.object().keys({
-    email: Joi.string().required().min(2).max(30),
-    name: Joi.string().required().min(2).max(30),
+    email: Joi.string(),
+    name: Joi.string(),
   }),
 }), updateUser);
 

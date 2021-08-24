@@ -27,11 +27,11 @@ function Header({ onMenuClick }) {
       <div className="container">
         <div className="header__box">
           <div className="header__left">
-            <Link to="/">
+            <Link to="/movies">
               <img className="header__logo" src={logo} alt="Movies"/>
             </Link>
 
-            {notMain ? <div className="header__movies"><Link className="header__movies-item header__movies-item_type_movies" to='/'>Фильмы</Link><Link className="header__movies-item" to='/'>Сохранённые фильмы</Link></div> : ''}
+            {notMain ? <div className="header__movies"><Link className="header__movies-item header__movies-item_type_movies" to='/movies'>Фильмы</Link><Link className="header__movies-item" to='/saved-movies'>Сохранённые фильмы</Link></div> : ''}
 
           </div>
           <div className="header__right">
@@ -40,14 +40,6 @@ function Header({ onMenuClick }) {
         </div>
       </div>
     </header>
-
-    /*<header className="header">
-      <Link to="/">
-        <img className="header__logo" src={logo} alt="Место"/>
-      </Link>
-
-
-    </header>*/
   )
 }
 export default Header

@@ -21,6 +21,7 @@
     padding-bottom: 16px;
     border-bottom: 1px solid #E8E8E8;;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -40,6 +41,18 @@
     margin-bottom: 16px;
     font-size: 12px;
     line-height: 15px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.profile__info-signature[disabled] {
+    opacity: .6;
+}
+
+.profile__line-value {
+    border: none;
+    text-align: right;
 }
 
 .profile__info-signature:last-child {
@@ -48,6 +61,15 @@
 
 .profile__info-signature_color_red {
     color: #EE3465;
+}
+
+.profile__error {
+    color: red;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 12px;
+    line-height: 18px;
+    display: block;
 }
 
 @media screen and (min-width: 768px) {
