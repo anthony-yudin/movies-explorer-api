@@ -105,6 +105,10 @@
     display: none;
 }
 
+.form-search__switch-input:checked + .form-search__switch-slider {
+    background: #75ffb8;
+}
+
 .form-search__switch-input:checked + .form-search__switch-slider:before {
     transform: translateX(-13px);
 }

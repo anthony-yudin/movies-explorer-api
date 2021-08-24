@@ -9,15 +9,18 @@
 }
 
 .movies__item {
+    color: #000;
     width: 100%;
     margin-bottom: 20px;
     background: #FDFDFD;
     box-shadow: 0 16px 24px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .movies__img {
     width: 100%;
+    height: 151px;
     object-fit: cover;
     display: block;
 }
@@ -57,6 +60,8 @@
     border: 2px solid #fff;
     transition: .3s;
 }
+
+
 
 .movies__close {
     width: 8px;
