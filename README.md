@@ -1,3 +1,3 @@
-Бэкенд - backend.nomoredomains.icu
+Бэкенд - https://backend.nomoredomains.icu
 
-Фронтенд - frontend.nomoredomains.icu
+Фронтенд - https://frontend.nomoredomains.icu
