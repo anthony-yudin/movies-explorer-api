@@ -1,40 +1,32 @@
 import React from 'react';
 import SearchForm from "../SearchForm/SearchForm";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import MoviesLikedCardList from "../MoviesLikedCardList/MoviesLikedCardList";
 import Navigation from "../Navigation/Navigation";
-import Preloader from '../Preloader/Preloader';
-import Notification from '../Notification/Notification';
+import Notification from "../Notification/Notification";
+import Preloader from "../Preloader/Preloader";
 
-function Movies({ visibleMenu, onMenuClick, handleMovieSearch, isNoMoviesFind, isLoading, movies, likedMovies, onLiked, deleteLiked, message }) {
+function LikedMovies({ visibleMenu, onMenuClick, handleSearchLiked, isNoMoviesFind, isLoading, message, movies, deleteLiked }) {
   return (
     <div className="container">
-      <SearchForm handleMovieSearch={handleMovieSearch}  />
+      <SearchForm handleMovieSearch={handleSearchLiked} />
 
       {!isLoading && isNoMoviesFind && !message && (
         <Notification text="Ничего не найденно" />
       )}
-
+      {isLoading && (<Preloader />)}
 
       {message && (
         <Notification text="Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз" />
       )}
 
-      {isLoading && (<Preloader />)}
-
-      {!isLoading &&
-        (
-          <MoviesCardList
-            movies={movies}
-            likedMovies={likedMovies}
-            onLiked={onLiked}
-            deleteLiked={deleteLiked}
-          />
-        )
-      }
+      <MoviesLikedCardList
+        movies={movies}
+        deleteLiked={deleteLiked}
+      />
 
       <Navigation visibleMenu={visibleMenu} onMenuClick={onMenuClick} />
     </div>
   )
 }
 
-export default Movies
+export default LikedMovies

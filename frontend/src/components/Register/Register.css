@@ -43,6 +43,11 @@
     cursor: pointer;
     background: #2BE080;
     border-radius: 3px;
+    transition: .3s;
+}
+
+.form__btn[disabled] {
+    opacity: .6;
 }
 
 .form__btn:hover {

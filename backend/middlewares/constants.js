@@ -10,9 +10,9 @@ const incorrectUpdateDataUser = 'Переданы некорректные да�
 
 const allowedCors = [
   'https://frontend.nomoredomains.icu',
-  'https://backend.nomoredomains.icu/api',
+  'https://backend.nomoredomains.icu',
   'http://localhost:3005',
-  'http://localhost:3005',
+  'http://localhost:3000',
 ];
 
 module.exports = {

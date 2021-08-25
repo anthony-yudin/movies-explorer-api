@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* diplom3@178.154.194.2:/home/diplom3/movies-explorer-api/frontend"
   },
   "eslintConfig": {
     "extends": [

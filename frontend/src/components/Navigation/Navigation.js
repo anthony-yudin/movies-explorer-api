@@ -26,7 +26,7 @@ function Navigation({ visibleMenu, onMenuClick }) {
             <div className="navigation__item"><Link to="/movies" className="navigation__item-href">Фильмы</Link></div>
             <div className="navigation__item"><Link to="/saved-movies" className="navigation__item-href">Сохранённые фильмы</Link></div>
           </div>
-          <Link className="account account_navigation"><img className="account__img" src={account} alt="Аккаунт"/>Аккаунт</Link>
+          <Link className="account account_navigation" to="/profile"><img className="account__img" src={account} alt="Аккаунт"/>Аккаунт</Link>
         </div>
       </div>
     </>
